@@ -10,7 +10,7 @@ import {ComponentContacte} from './app/views/contacte';
 import * as data from './assets/JSON/dades.json'; 
 
 const Menu = props =>{
-  const onDades = () =>{props.navigation.navigate('Dades')};
+  const onDades = () =>{props.navigation.navigate('Capital')};
   const onPoblacio = () =>{props.navigation.navigate('Poblacio')};
   const onContinent = () =>{props.navigation.navigate('Continent')}; 
   const onAboutus = () =>{props.navigation.navigate('About_Us')}; 
@@ -18,7 +18,7 @@ const Menu = props =>{
   
   return (
     <View style={styles.container}>
-      <View style={styles.menu}><Button title="Dades" onPress={onDades}></Button></View>
+      <View style={styles.menu}><Button title="Capital" onPress={onDades}></Button></View>
       <View style={styles.menu}><Button title="Poblacio" onPress={onPoblacio}></Button></View>
       <View style={styles.menu}><Button title="Continent" onPress={onContinent}></Button></View>
       <View style={styles.menu}><Button title="About Us" onPress={onAboutus}></Button></View>
@@ -27,13 +27,9 @@ const Menu = props =>{
   );
 }
 
-const Dades = () => {
+const Capital = () => {
   return (
-    <ComponentDades></ComponentDades>
-    // <View>
-    //   <Text>{data[0].pais}</Text>
-    // </View>
-    
+    <ComponentDades></ComponentDades>    
   );
 };
 const Poblacions = () => {
@@ -64,7 +60,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Menu" component={Menu} />
-        <Stack.Screen name="Dades" component={Dades} />
+        <Stack.Screen name="Capital" component={Capital} />
         <Stack.Screen name="Poblacio" component={Poblacions} />
         <Stack.Screen name="Continent" component={Continents} />
         <Stack.Screen name="About_Us" component={About} />
