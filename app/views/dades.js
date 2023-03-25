@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View, Button,ScrollView } from 'react-native';
+import { StyleSheet, Text, TextInput, View, Button,ScrollView, ImageBackground } from 'react-native';
 import * as data from '../../assets/JSON/dades.json'; 
 import { db } from './dades_sqlite';
 // import * as RNFS from 'react-native-fs'
 
 //const dadesJSON = require('./')
+const image = {uri: 'https://images.unsplash.com/photo-1564758942677-5e60698025c3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8YnVpZGxpbmdzfGVufDB8fDB8fA%3D%3D&w=1000&q=80'}; 
+
 export class ComponentDades extends React.Component {
     constructor(props) {
         super(props);
@@ -29,7 +31,12 @@ export class ComponentDades extends React.Component {
     render(){
         return(
             <View style={styles.container}>
-              <ScrollView style={styles.data}>{this.mostraPais()}</ScrollView>  
+              <ImageBackground source={image} resizeMode="cover" style={styles.image}>
+                <View style={styles.subcontainer}>
+                  <Text style={styles.text}>Capitals dels paisos </Text>
+                  <ScrollView style={styles.data}>{this.mostraPais()}</ScrollView>  
+                </View>
+              </ImageBackground>
             </View>
         )
     }
@@ -37,26 +44,46 @@ export class ComponentDades extends React.Component {
 
 }
 const styles = StyleSheet.create({
+    image: {
+      flex: 1,
+      justifyContent: 'center',
+    },
     data:{
-      flex:1
+      height: 300,
+      width: 300, 
+    },
+    text: {
+      fontSize: 20, 
+      color: 'pink',    
     },
     row1:{
-      backgroundColor:'grey',
-      flexDirection:'row'
+      backgroundColor:'darkgreen',
+      flexDirection:'row',
     },
     row2:{
-      backgroundColor:'lightgrey',
-      flexDirection:'row'
+      backgroundColor:'darkblue',
+      flexDirection:'row',
     },
     cell:{
-      width:'50%'
+      width:'50%',
+      color: 'white'
     },
-    container: {
-      backgroundColor:'black',
-      padding:'5%',
+    image: {
       flex: 1,
-      alignItems: 'center',
+      justifyContent: 'center',
+  },
+    container: {
+      flex: 1,
       justifyContent: 'center',
 
+    },
+    subcontainer:{
+      backgroundColor:'rgba(0,0,0,0.5)',
+      padding:'5%',
+      alignItems: 'center',
+      flex: 1,
+      justifyContent: 'center',
     }
+
+   
   });
